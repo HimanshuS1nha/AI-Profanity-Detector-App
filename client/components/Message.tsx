@@ -16,7 +16,7 @@ const Message = ({ message }: { message: MessageType }) => {
           message.by === "user"
             ? "bg-blue-600 rounded-tr-none"
             : "bg-gray-700 rounded-bl-none"
-        } px-4 py-3 min-w-[55%] max-w-[85%] rounded-xl`}
+        } px-4 py-3 min-w-[55%] max-w-[90%] rounded-xl`}
       >
         <Text style={tw`text-white text-base`}>{message.content}</Text>
       </View>

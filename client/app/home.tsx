@@ -12,6 +12,7 @@ import { FlashList } from "@shopify/flash-list";
 import { Ionicons } from "@expo/vector-icons";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
+import LoadingDots from "react-native-loading-dots";
 
 import SafeView from "@/components/SafeView";
 import type { MessageType } from "../types";
@@ -99,21 +100,31 @@ const Home = () => {
       <View
         style={tw`h-[60px] px-3.5 flex-row gap-x-3 items-center absolute bottom-2 w-full`}
       >
-        <TextInput
-          placeholder="Type here..."
-          style={tw`border border-white px-4 py-2.5 rounded-full w-[87%] text-white`}
-          placeholderTextColor={"#d1d5db"}
-          value={input}
-          onChangeText={handleChangeInput}
-          editable={!isLoading}
-        />
-        <Pressable
-          style={tw`p-2 rounded-full bg-blue-600`}
-          onPress={handleSend}
-          disabled={isLoading}
-        >
-          <Ionicons name="send-sharp" size={26} color="white" />
-        </Pressable>
+        {isLoading ? (
+          <View style={tw`items-center w-full`}>
+            <View style={tw`w-[30%]`}>
+              <LoadingDots />
+            </View>
+          </View>
+        ) : (
+          <>
+            <TextInput
+              placeholder="Type here..."
+              style={tw`border border-white px-4 py-2.5 rounded-full w-[87%] text-white`}
+              placeholderTextColor={"#d1d5db"}
+              value={input}
+              onChangeText={handleChangeInput}
+              editable={!isLoading}
+            />
+            <Pressable
+              style={tw`p-2 rounded-full bg-blue-600`}
+              onPress={handleSend}
+              disabled={isLoading}
+            >
+              <Ionicons name="send-sharp" size={26} color="white" />
+            </Pressable>
+          </>
+        )}
       </View>
     </SafeView>
   );
