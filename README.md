@@ -10,11 +10,12 @@ Scan text and identifies offensive language with precision. It helps ensure a cl
 
 - React Native Expo
 - Tailwind CSS
+- Hono
 - Google Gemini
 
 ## Demo
 
-Live Demo - Coming Soon
+Live Demo - [Click Here](https://www.youtube.com/shorts/Q5vKbt_eLwc)
 
 ## 🚀 About Me
 
